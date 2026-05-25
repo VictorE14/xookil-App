@@ -1,0 +1,1793 @@
+/* ==================== RESET Y VARIABLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;
+    --gray-light: #94a3b8;
+    --dark: #1e2937;
+    --border: #e2e8f0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==================== MODO TEXTO GRANDE ==================== */
+body.large-text {
+    font-size: 18px;
+}
+
+body.large-text h1 {
+    font-size: 32px !important;
+}
+
+body.large-text h2 {
+    font-size: 28px !important;
+}
+
+body.large-text h3 {
+    font-size: 24px !important;
+}
+
+body.large-text p,
+body.large-text span,
+body.large-text label,
+body.large-text li {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+}
+
+body.large-text .btn-login,
+body.large-text .btn-primary,
+body.large-text .btn-continue,
+body.large-text .listen-all-btn {
+    padding: 20px !important;
+    font-size: 20px !important;
+}
+
+body.large-text .config-card {
+    padding: 28px 12px !important;
+}
+
+body.large-text .config-card h3 {
+    font-size: 20px !important;
+}
+
+body.large-text .config-card p {
+    font-size: 16px !important;
+}
+
+body.large-text .config-card-icon {
+    font-size: 56px !important;
+}
+
+body.large-text .tramite-card {
+    padding: 32px 16px !important;
+}
+
+body.large-text .tramite-card h3 {
+    font-size: 22px !important;
+}
+
+body.large-text .tramite-card p {
+    font-size: 16px !important;
+}
+
+body.large-text .tramite-card .icon {
+    font-size: 56px !important;
+}
+
+body.large-text input,
+body.large-text select {
+    padding: 18px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .form-group label {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+}
+
+body.large-text .step-number {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 22px !important;
+}
+
+body.large-text .step-content strong {
+    font-size: 18px !important;
+}
+
+body.large-text .step-content p {
+    font-size: 16px !important;
+}
+
+body.large-text .big-play-button {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 52px !important;
+}
+
+body.large-text .profile-field {
+    padding: 16px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .profile-avatar {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 52px !important;
+}
+
+body.large-text .nav-item span {
+    font-size: 16px !important;
+}
+
+body.large-text .nav-icon {
+    font-size: 28px !important;
+}
+
+body.large-text .speed-control {
+    padding: 24px !important;
+}
+
+body.large-text .speed-control strong {
+    font-size: 18px !important;
+}
+
+body.large-text .speed-buttons button {
+    padding: 14px 28px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .video-tutorial {
+    padding: 20px !important;
+}
+
+body.large-text .video-tutorial iframe {
+    height: 250px !important;
+}
+
+/* ==================== APP CONTAINER RESPONSIVO ==================== */
+.app-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+@media (min-width: 451px) {
+    .app-container {
+        height: 95vh;
+        border-radius: 28px;
+        margin: 20px auto;
+    }
+}
+
+/* ==================== SCROLL EN MAIN CONTENT ==================== */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* ==================== STATUS BAR ==================== */
+.status-bar {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+}
+
+/* ==================== LOGIN SCREEN ==================== */
+.login-screen {
+    padding: 20px 0;
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.welcome-header .icon {
+    font-size: 52px;
+    margin-bottom: 16px;
+}
+
+.welcome-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.welcome-header p {
+    color: var(--gray);
+    font-size: 15px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: 16px;
+    background: white;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.forgot-password a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14.5px;
+}
+
+.btn-login {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 9999px;
+    font-size: 17px;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.register-link {
+    text-align: center;
+    font-size: 15px;
+    color: var(--gray);
+}
+
+.register-link a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ==================== CONFIG SCREEN ==================== */
+.config-screen {
+    padding: 0;
+}
+
+.config-header-bar {
+    height: 8px;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+}
+
+.config-title {
+    background: var(--primary);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+}
+
+.config-title h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 24px 20px;
+}
+
+.config-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.config-card.selected {
+    border-color: var(--primary-light);
+    background: #f0f9ff;
+}
+
+.config-card-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.config-card h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.config-card p {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.btn-continue {
+    margin: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 9999px;
+    font-size: 18px;
+    font-weight: 600;
+    width: calc(100% - 40px);
+    cursor: pointer;
+}
+
+/* ==================== TRÁMITES - LECTOR DE PANTALLA ==================== */
+.header-blue {
+    background: var(--primary);
+    color: white;
+    padding: 16px 20px;
+    margin: -20px -20px 24px -20px;
+    text-align: center;
+}
+
+.header-blue h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.volume-tip {
+    background: var(--primary);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.main-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.tramite-card {
+    background: #1e40af;
+    color: white;
+    border-radius: 16px;
+    padding: 28px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.tramite-card:active {
+    transform: scale(0.98);
+}
+
+.tramite-card .icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.tramite-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.tramite-card p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ==================== VIDEOS TUTORIALES ==================== */
+.video-tutorial {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 16px;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+}
+
+.video-tutorial h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.video-tutorial iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    border: none;
+}
+
+/* ==================== DETALLE TRÁMITE ==================== */
+.instructions-screen {
+    padding-bottom: 80px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--primary);
+    padding: 8px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.big-play-button {
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+}
+
+.big-play-button:active {
+    transform: scale(0.95);
+}
+
+.steps-container {
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.step-item {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.step-item:active {
+    transform: scale(0.99);
+    background: #f1f5f9;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    color: white;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content strong {
+    display: block;
+    font-size: 16px;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.step-content p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.step-play {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+/* Formularios */
+.form-container {
+    margin-top: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 9999px;
+    font-size: 17px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.result-card {
+    background: #dcfce7;
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 20px;
+    border-left: 4px solid #22c55e;
+}
+
+.result-card code {
+    display: block;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-family: monospace;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+/* Velocidad de voz */
+.speed-control {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.speed-control strong {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--dark);
+}
+
+.speed-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.speed-buttons button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 500;
+    background: #e2e8f0;
+    cursor: pointer;
+}
+
+.speed-buttons button.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* ==================== NOTICIAS ==================== */
+.news-card {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.news-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.news-card p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* ==================== PERFIL ==================== */
+.profile-card {
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 40px;
+}
+
+.profile-field {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border: 1px solid var(--border);
+}
+
+.profile-field strong {
+    color: var(--gray);
+}
+
+/* ==================== BOTTOM NAVIGATION ==================== */
+.bottom-nav {
+    background: white;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0 8px;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--gray);
+    font-family: inherit;
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-icon {
+    font-size: 22px;
+}
+
+/* ==================== TOAST ==================== */
+.toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    z-index: 1000;
+    display: none;
+    white-space: nowrap;
+}
+
+/* ==================== UTILIDADES ==================== */
+.mt-20 {
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Header con botón de atrás integrado */
+.header-blue {
+    background: #1e3a8a;
+    color: white;
+    padding: 16px 20px;
+    margin: -20px -20px 24px -20px;
+}
+
+.header-with-back {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.back-btn-inline {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    transition: background 0.2s;
+}
+
+.back-btn-inline:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-text h2 {
+    font-size: 20px;
+    margin: 0 0 4px 0;
+}
+
+.header-text p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Botón de enlace a sitio oficial */
+.oficial-link {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.btn-oficial {
+    display: inline-block;
+    background: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-oficial:active {
+    background: #0f2a5c;
+}
+
+/* Modo texto grande */
+body.large-text .btn-oficial {
+    padding: 18px 28px;
+    font-size: 18px;
+}
+
+
+/* ==================== INSTRUCCIONES COMPLETAS ==================== */
+.instructions-complete {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.instructions-complete h3 {
+    color: #1e3a8a;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.instruction-method {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.instruction-method:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.instruction-method h4 {
+    color: #1e2937;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.instruction-method p {
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+.steps-list ol, .steps-list ul {
+    margin-left: 20px;
+    margin-top: 8px;
+    color: #475569;
+}
+
+.steps-list li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+/* Modo texto grande */
+body.large-text .instructions-complete h3 {
+    font-size: 22px;
+}
+
+body.large-text .instruction-method h4 {
+    font-size: 20px;
+}
+
+body.large-text .steps-list li {
+    font-size: 18px;
+}
+
+/* ==================== MODO MAYA ==================== */
+.maya-screen {
+    padding: 0;
+}
+
+.header-maya {
+    background: #1e3a8a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: -20px -20px 20px -20px;
+}
+
+.header-maya h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.header-maya p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.maya-description {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
+}
+
+.maya-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.maya-help {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 13px;
+    color: #64748b;
+}
+/* ==================== MODO MAYA ==================== */
+.maya-screen {
+    padding: 0;
+}
+
+.header-maya {
+    background: #1e3a8a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: -20px -20px 20px -20px;
+}
+
+.header-maya h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.header-maya p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.maya-description {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
+}
+
+.maya-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.maya-help {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* ==================== MODO MAYA - ESTILOS EXACTOS ==================== */
+.maya-screen {
+    padding: 0;
+}
+
+/* Header azul con botón atrás */
+.header-maya {
+    background: #1e3a8a;
+    color: white;
+    padding: 16px 20px;
+    margin: -20px -20px 20px -20px;
+}
+
+.header-maya .header-with-back {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-maya .back-btn-inline {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+.header-maya .back-btn-inline:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.header-maya .header-text {
+    flex: 1;
+    text-align: center;
+}
+
+.header-maya .header-text h2 {
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.header-maya .header-text p {
+    font-size: 14px;
+    margin: 4px 0 0 0;
+    opacity: 0.9;
+}
+
+/* Descripción en maya */
+.maya-description {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 16px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
+    line-height: 1.5;
+}
+
+/* Tarjetas de trámites en maya */
+.maya-screen .main-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.maya-screen .tramite-card {
+    background: #1e40af;
+    color: white;
+    border-radius: 16px;
+    padding: 20px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.maya-screen .tramite-card:active {
+    transform: scale(0.96);
+    background: #1e3a8a;
+}
+
+.maya-screen .tramite-card .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.maya-screen .tramite-card h3 {
+    font-size: 17px;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.maya-screen .tramite-card p {
+    font-size: 11px;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* Footer en maya */
+.maya-footer {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.maya-help {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.help-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.help-item:active {
+    background: #e2e8f0;
+}
+
+.help-icon {
+    font-size: 22px;
+}
+
+.help-item span:last-child {
+    font-size: 11px;
+    color: #475569;
+    text-align: center;
+}
+/* ===================== MAYA MODE ===================== */
+.maya-banner {
+    background: #1e3a8a;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin: 16px 0;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.maya-buttons {
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.maya-help-section {
+    margin-top: 8px;
+}
+
+.help-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.help-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.help-item.full {
+    grid-column: 1 / -1;
+}
+
+.help-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.help-item span {
+    font-size: 13.5px;
+    display: block;
+    color: #334155;
+}
+
+/* ====================== ESTILOS ESPECÍFICOS PARA MODO MAYA ====================== */
+
+.maya-banner {
+    background: #1e3a8a;
+    color: white;
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin: 20px 0 24px 0;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.55;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+}
+
+.maya-buttons {
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.maya-help-section {
+    margin-top: 12px;
+}
+
+.help-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.help-item {
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.help-item:active {
+    background: #f1f5f9;
+    transform: scale(0.97);
+}
+
+.help-item.full {
+    grid-column: 1 / -1;
+}
+
+.help-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.help-item span {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #1e2937;
+    display: block;
+}
+
+.maya-detail-screen {
+    padding-bottom: 100px;
+}
+
+.maya-video-box {
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    margin: 20px 0;
+    border: 2px dashed #bfdbfe;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.maya-content .maya-section {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.maya-content h3 {
+    color: #1e3a8a;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.maya-steps {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 14px 0;
+}
+
+.maya-steps strong {
+    color: #1e3a8a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.maya-steps ol, .maya-steps ul {
+    padding-left: 20px;
+}
+
+.maya-steps li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.video-tutorials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.video-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.video-card:active {
+    transform: scale(0.98);
+}
+
+.video-thumbnail {
+    position: relative;
+    height: 180px;
+    background: #000;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 58, 138, 0.9);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.video-info {
+    padding: 16px;
+}
+
+.video-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.video-tag {
+    background: #e0f2fe;
+    color: #1e40af;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.video-duration {
+    color: #64748b;
+    font-size: 13px;
+}
+.video-placeholder {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.video-box {
+    background: #f1f5f9;
+    border: 2px dashed #94a3b8;
+    border-radius: 16px;
+    padding: 60px 20px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.play-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.requirements-box {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.requirements-box ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.content-section h3 {
+    color: #1e3a8a;
+    margin: 24px 0 12px 0;
+}
+
+/* ==================== MODO TEXTO GRANDE - MEJORADO ==================== */
+body.large-text {
+    font-size: 18px;
+}
+
+body.large-text h1 {
+    font-size: 32px !important;
+}
+
+body.large-text h2 {
+    font-size: 28px !important;
+}
+
+body.large-text h3 {
+    font-size: 24px !important;
+}
+
+body.large-text p,
+body.large-text span,
+body.large-text label,
+body.large-text li {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+}
+
+body.large-text .btn-login,
+body.large-text .btn-primary,
+body.large-text .btn-continue,
+body.large-text .listen-all-btn {
+    padding: 20px !important;
+    font-size: 20px !important;
+}
+
+body.large-text .config-card {
+    padding: 28px 12px !important;
+}
+
+body.large-text .config-card h3 {
+    font-size: 20px !important;
+}
+
+body.large-text .config-card p {
+    font-size: 16px !important;
+}
+
+body.large-text .config-card-icon {
+    font-size: 56px !important;
+}
+
+body.large-text .tramite-card {
+    padding: 32px 16px !important;
+}
+
+body.large-text .tramite-card h3 {
+    font-size: 22px !important;
+}
+
+body.large-text .tramite-card p {
+    font-size: 16px !important;
+}
+
+body.large-text .tramite-card .icon {
+    font-size: 56px !important;
+}
+
+body.large-text input,
+body.large-text select {
+    padding: 18px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .form-group label {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+}
+
+body.large-text .step-number {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 22px !important;
+}
+
+body.large-text .step-content strong {
+    font-size: 18px !important;
+}
+
+body.large-text .step-content p {
+    font-size: 16px !important;
+}
+
+body.large-text .big-play-button {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 52px !important;
+}
+
+body.large-text .profile-field {
+    padding: 16px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .profile-avatar {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 52px !important;
+}
+
+body.large-text .nav-item span {
+    font-size: 16px !important;
+}
+
+body.large-text .nav-icon {
+    font-size: 28px !important;
+}
+
+body.large-text .speed-control {
+    padding: 24px !important;
+}
+
+body.large-text .speed-control strong {
+    font-size: 18px !important;
+}
+
+body.large-text .speed-buttons button {
+    padding: 14px 28px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .video-tutorial {
+    padding: 20px !important;
+}
+
+body.large-text .video-tutorial iframe {
+    height: 250px !important;
+}
+
+/* ==================== MODO TEXTO GRANDE - INSTRUCCIONES COMPLETAS ==================== */
+body.large-text .instructions-complete {
+    padding: 24px !important;
+}
+
+body.large-text .instructions-complete h3 {
+    font-size: 22px !important;
+    margin-bottom: 20px !important;
+}
+
+body.large-text .instructions-complete h4 {
+    font-size: 20px !important;
+    margin-bottom: 16px !important;
+}
+
+body.large-text .instruction-method {
+    margin-bottom: 28px !important;
+    padding-bottom: 20px !important;
+}
+
+body.large-text .instruction-method p {
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+}
+
+body.large-text .steps-list ol,
+body.large-text .steps-list ul {
+    margin-left: 24px !important;
+    margin-top: 12px !important;
+}
+
+body.large-text .steps-list li {
+    margin-bottom: 10px !important;
+    line-height: 1.6 !important;
+    font-size: 18px !important;
+}
+
+body.large-text .steps-list ul li {
+    margin-left: 20px !important;
+}
+
+body.large-text .requirements-box {
+    padding: 20px !important;
+    margin: 24px 0 !important;
+}
+
+body.large-text .requirements-box ul {
+    padding-left: 24px !important;
+}
+
+body.large-text .requirements-box li {
+    margin-bottom: 10px !important;
+}
+
+/* ==================== MODO TEXTO GRANDE - TARJETAS DE VÍDEO ==================== */
+body.large-text .video-card {
+    border-radius: 20px !important;
+}
+
+body.large-text .video-thumbnail {
+    height: 220px !important;
+}
+
+body.large-text .play-overlay {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 36px !important;
+}
+
+body.large-text .video-info {
+    padding: 20px !important;
+}
+
+body.large-text .video-info h3 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+}
+
+body.large-text .video-tag,
+body.large-text .video-duration {
+    font-size: 15px !important;
+    padding: 5px 12px !important;
+}
+
+/* ==================== MODO TEXTO GRANDE - PERFIL ==================== */
+body.large-text .profile-card {
+    padding: 28px !important;
+    margin-bottom: 28px !important;
+}
+
+body.large-text .profile-field {
+    padding: 16px 20px !important;
+    margin-bottom: 14px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .profile-field strong {
+    font-size: 18px !important;
+}
+
+/* ==================== MODO TEXTO GRANDE - BOTONES Y ENLACES ==================== */
+body.large-text .btn-oficial {
+    padding: 18px 28px !important;
+    font-size: 18px !important;
+}
+
+body.large-text .back-btn-inline {
+    font-size: 36px !important;
+    width: 48px !important;
+    height: 48px !important;
+}
+
+body.large-text .header-text h2 {
+    font-size: 24px !important;
+}
+
+body.large-text .header-text p {
+    font-size: 16px !important;
+}
+
+/* ==================== ESTILOS PARA MODO TEXTO GRANDE - NUEVOS ==================== */
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 24px 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1e3a8a;
+}
+
+.method-card {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.method-card h3 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.method-card p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.requirements-box {
+    background: #f0f9ff;
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+.requirements-box p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.requirements-box ul {
+    margin-left: 24px;
+}
+
+.requirements-box li {
+    margin-bottom: 6px;
+}
+
+.steps-list {
+    margin: 16px 0;
+}
+
+.steps-list p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.steps-list ol, .steps-list ul {
+    margin-left: 24px;
+}
+
+.steps-list li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.steps-list ul ul {
+    margin-left: 24px;
+    margin-top: 6px;
+}
+
+/* Modo texto grande específico */
+body.large-text .section-title {
+    font-size: 28px;
+}
+
+body.large-text .method-card h3 {
+    font-size: 24px;
+}
+
+body.large-text .method-card p,
+body.large-text .requirements-box p,
+body.large-text .steps-list p {
+    font-size: 18px;
+}
+
+body.large-text .requirements-box li,
+body.large-text .steps-list li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+body.large-text .profile-field {
+    font-size: 18px;
+    padding: 16px;
+}
+
+body.large-text .profile-field strong {
+    font-size: 18px;
+}
+
+body.large-text .profile-field span {
+    font-size: 18px;
+}
