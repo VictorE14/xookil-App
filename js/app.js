@@ -199,7 +199,7 @@ const App = {
                 <div class="step-item"><div class="step-number">1</div><div class="step-content"><strong>Abre la app y toca el botón CURP</strong></div></div>
                 <div class="step-item"><div class="step-number">2</div><div class="step-content"><strong>Escribe tu nombre completo</strong></div></div>
                 <div class="step-item"><div class="step-number">3</div><div class="step-content"><strong>Pon tu fecha de nacimiento</strong></div></div>
-                <div class="step-item"><div class="step-number">4</div><div class="step-content><strong>Toca 'Buscar' y espera el resultado</strong></div></div>
+                <div class="step-item"><div class="step-number">4</div><div class="step-content"><strong>Toca 'Buscar' y espera el resultado</strong></div></div>
                 <div class="step-item"><div class="step-number">5</div><div class="step-content"><strong>Guarda o imprime tu CURP</strong></div></div>
             `;
         }
@@ -249,16 +249,17 @@ const App = {
         return videos[tramiteId] || videos.curp;
     },
 
-    getVideoTitle(tramiteId) {
-        const titles = {
-            curp: '📹 Video Tutorial: Cómo obtener tu CURP',
-            rfc: '📹 Video Tutorial: Cómo obtener tu RFC',
-            acta: '📹 Video Tutorial: Cómo obtener tu Acta de Nacimiento',
-            agua: '📹 Video Tutorial: Pago de Agua Potable',
-            luz: '📹 Video Tutorial: Pago de Luz CFE',
-            servicios: '📹 Video Tutorial: Servicios Públicos'
+    // VIDEOS EN MAYA
+    getVideoUrlMaya(tramiteId) {
+        const videosMaya = {
+            curp: 'https://www.youtube.com/embed/Q5mHj18l-YE',
+            rfc: 'https://www.youtube.com/embed/vXOov614vtQ',
+            acta: 'https://www.youtube.com/embed/zREdYJ5fQRk',
+            agua: 'https://www.youtube.com/embed/ZsZJtENEWEc',
+            luz: 'https://www.youtube.com/embed/j8-uu2kN6qU',
+            servicios: 'https://www.youtube.com/embed/ZsZJtENEWEc'
         };
-        return titles[tramiteId] || '📹 Video Tutorial';
+        return videosMaya[tramiteId] || videosMaya.curp;
     },
 
     getMayaContent() {
@@ -357,17 +358,27 @@ const App = {
                 </div>
             `;
         }
+        if (tramiteId === 'servicios') {
+            return `
+                <div class="instructions-complete">
+                    <div class="instruction-method"><h4>Meyajilo'ob tu yo'ok'ol kaaj</h4><p><strong>VIDEO TUTORIAL TE'ELA'</strong></p></div>
+                    <div class="instruction-method"><h4>💧 Meyajil ja' (CAPA)</h4><p><strong>K'a'abeto'ob:</strong></p><ul><li>Número de contrato</li><li>Dirección u meyajil</li><li>Método de pago</li></ul><div class="steps-list"><p><strong>Meyajilo'ob:</strong></p><ol><li>Okol ti' le portal CAPA.</li><li>Ts'íib a número contrato.</li><li>Iláa a saldo pendiente.</li><li>Xook le monto ku k'a'abet pago.</li><li>Beet le pago ichil línea.</li><li>Je'el a wáantik a comprobante.</li></ol></div><p><strong>Okol ti' le sitio oficial CAPA</strong></p></div>
+                    <div class="instruction-method"><h4>⚡ Meyajil electricidad (CFE)</h4><p><strong>K'a'abeto'ob:</strong></p><ul><li>Número de servicio</li><li>Dirección u naajil</li><li>Método de pago</li></ul><div class="steps-list"><p><strong>Meyajilo'ob:</strong></p><ol><li>Okol ti' le portal CFE.</li><li>Ts'íib a número servicio.</li><li>Iláa a recibo wa adeudo.</li><li>Xook le monto ku k'a'abet pago.</li><li>Beet le pago ichil línea.</li><li>Guarda a comprobante.</li></ol></div><p><strong>Okol ti' le sitio oficial CFE</strong></p></div>
+                </div>
+            `;
+        }
         return '';
     },
 
     renderMayaInstructions(tramiteId) {
         const title = this.getTramiteTitle(tramiteId);
-        const videoUrl = this.getVideoUrl(tramiteId);
+        // Usar video específico de Maya
+        const videoUrl = this.getVideoUrlMaya(tramiteId);
         
-        // SOLO MODIFICADO: SERVICIOS en MODO MAYA
+        // INTERFAZ PARA SERVICIOS EN MODO MAYA
         if (tramiteId === 'servicios') {
-            const videoAguaUrl = "https://www.youtube.com/embed/dkpqVCMyrXc";
-            const videoLuzUrl = "https://www.youtube.com/embed/j8-uu2kN6qU";
+            const videoAguaUrl = this.getVideoUrlMaya('agua');
+            const videoLuzUrl = this.getVideoUrlMaya('luz');
             
             return `
                 <div class="instructions-screen">
@@ -384,10 +395,10 @@ const App = {
                     <div class="section-title">Meyajil ja'</div>
                     
                     <div class="video-tutorial">
-                        <h4>📺 VIDEO TUTORIAL TE'ELA'</h4>
+                        <h4>📺 VIDEO TUTORIAL TE'ELA' (Videos en Maya)</h4>
                         <iframe src="${videoAguaUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div style="margin-top: 8px; text-align: right;">
-                            <a href="https://www.youtube.com/watch?v=dkpqVCMyrXc" target="_blank" style="color: #1e3a8a; font-size: 12px;">Mirar en YouTube →</a>
+                            <a href="https://www.youtube.com/watch?v=ZsZJtENEWEc" target="_blank" style="color: #1e3a8a; font-size: 12px;">Mirar en YouTube →</a>
                         </div>
                     </div>
                     
@@ -419,7 +430,7 @@ const App = {
                     <div class="section-title">Meyajil electricidad</div>
                     
                     <div class="video-tutorial">
-                        <h4>📺 VIDEO TUTORIAL TE'ELA'</h4>
+                        <h4>📺 VIDEO TUTORIAL TE'ELA' (Videos en Maya)</h4>
                         <iframe src="${videoLuzUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div style="margin-top: 8px; text-align: right;">
                             <a href="https://www.youtube.com/watch?v=j8-uu2kN6qU" target="_blank" style="color: #1e3a8a; font-size: 12px;">Mirar en YouTube →</a>
@@ -454,11 +465,14 @@ const App = {
             `;
         }
         
-        // CURP, RFC, ACTA en MAYA - SIN CAMBIOS
+        // CURP, RFC, ACTA en MAYA - SIN CAMBIOS (solo se actualizó el video)
         let officialText = 'Bin ti\' le sitio oficial ';
         if (tramiteId === 'curp') officialText += 'CURP →';
         else if (tramiteId === 'rfc') officialText += 'SAT →';
         else if (tramiteId === 'acta') officialText += 'Acta u síijil →';
+        
+        // Determinar título del video según el trámite
+        let videoTitleText = "📺 VIDEO TUTORIAL TE'ELA' (Videos en Maya)";
         
         return `
             <div class="instructions-screen">
@@ -472,7 +486,7 @@ const App = {
                     </div>
                 </div>
                 <div class="video-tutorial">
-                    <h4>📺 VIDEO TUTORIAL TE'ELA'</h4>
+                    <h4>${videoTitleText}</h4>
                     <iframe src="${videoUrl}" title="Video Tutorial ${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div style="margin-top: 8px; text-align: right;"><a href="${videoUrl.replace('/embed/', '/watch?v=')}" target="_blank" style="color: #1e3a8a; font-size: 12px;">Mirar en YouTube →</a></div>
                 </div>
@@ -690,7 +704,6 @@ const App = {
     },
 
     renderTramitesList() {
-        // Modo texto grande
         if (this.accessibilityMode === 'large-text') {
             if (this.currentLanguage === 'maya') {
                 return this.renderMayaHome();
@@ -730,7 +743,6 @@ const App = {
             `;
         }
         
-        // Modo lector de pantalla
         if (this.accessibilityMode === 'screenreader') {
             if (this.currentLanguage === 'maya') {
                 return this.renderMayaHome();
@@ -779,39 +791,111 @@ const App = {
                 <div style="text-align:center; margin-top:20px; font-size:13px; color:#64748b;">💡 Consejo: Mantén presionado cualquier botón para escuchar su descripción.</div>
             `;
         }
+        // MODO CONTENIDO VISUAL (Español) - CON VIDEOS EN ESPAÑOL Y VIDEOS EN MAYA
+if (this.accessibilityMode === 'visual' || !this.accessibilityMode) {
+    return `
+        <div class="header-blue">
+            <div class="header-with-back">
+                <button class="back-btn-inline" onclick="window.app.goBack()">←</button>
+                <div class="header-text">
+                    <h2>📹 Video Tutoriales</h2>
+                    <p>Aprende paso a paso cómo realizar tus trámites</p>
+                </div>
+            </div>
+        </div>
         
-        // Modo contenido visual
-        if (this.accessibilityMode === 'visual' || !this.accessibilityMode) {
-            return `
-                <div class="header-blue">
-                    <div class="header-with-back">
-                        <button class="back-btn-inline" onclick="window.app.goBack()">←</button>
-                        <div class="header-text">
-                            <h2>📹 Video Tutoriales</h2>
-                            <p>Aprende paso a paso cómo realizar tus trámites</p>
-                        </div>
-                    </div>
+        <!-- SECCIÓN VIDEOS EN ESPAÑOL -->
+        <div class="section-title">🎬 Videos en Español</div>
+        <div class="video-tutorials-container">
+            <div class="video-card" onclick="window.app.selectTramite('curp')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/a5UqBzJPE5w/maxresdefault.jpg" alt="CURP"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Cómo obtener tu CURP</h3>
+                    <span class="video-tag">CURP</span>
+                    <span class="video-duration">04:30</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇪🇸 Español</div>
                 </div>
-                <div class="video-tutorials-container">
-                    <div class="video-card" onclick="window.app.selectTramite('curp')">
-                        <div class="video-thumbnail"><img src="https://img.youtube.com/vi/a5UqBzJPE5w/maxresdefault.jpg" alt="CURP"><div class="play-overlay">▶</div></div>
-                        <div class="video-info"><h3>Cómo obtener tu CURP</h3><span class="video-tag">CURP</span><span class="video-duration">04:30</span></div>
-                    </div>
-                    <div class="video-card" onclick="window.app.selectTramite('rfc')">
-                        <div class="video-thumbnail"><img src="https://img.youtube.com/vi/ZkzsDKseYvU/maxresdefault.jpg" alt="RFC"><div class="play-overlay">▶</div></div>
-                        <div class="video-info"><h3>Cómo tramitar tu RFC</h3><span class="video-tag">RFC / SAT</span><span class="video-duration">06:12</span></div>
-                    </div>
-                    <div class="video-card" onclick="window.app.selectTramite('acta')">
-                        <div class="video-thumbnail"><img src="https://img.youtube.com/vi/a5UqBzJPE5w/maxresdefault.jpg" alt="Acta"><div class="play-overlay">▶</div></div>
-                        <div class="video-info"><h3>Acta de Nacimiento en línea</h3><span class="video-tag">ACTA</span><span class="video-duration">05:45</span></div>
-                    </div>
-                    <div class="video-card" onclick="window.app.selectTramite('servicios')">
-                        <div class="video-thumbnail"><img src="https://img.youtube.com/vi/j8-uu2kN6qU/maxresdefault.jpg" alt="Servicios"><div class="play-overlay">▶</div></div>
-                        <div class="video-info"><h3>Pago de Agua y Luz CFE</h3><span class="video-tag">SERVICIOS</span><span class="video-duration">07:20</span></div>
-                    </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('rfc')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/ZkzsDKseYvU/maxresdefault.jpg" alt="RFC"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Cómo tramitar tu RFC</h3>
+                    <span class="video-tag">RFC / SAT</span>
+                    <span class="video-duration">06:12</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇪🇸 Español</div>
                 </div>
-            `;
-        }
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('acta')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/a5UqBzJPE5w/maxresdefault.jpg" alt="Acta"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Acta de Nacimiento en línea</h3>
+                    <span class="video-tag">ACTA</span>
+                    <span class="video-duration">05:45</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇪🇸 Español</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('servicios')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/j8-uu2kN6qU/maxresdefault.jpg" alt="Servicios"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Pago de Agua y Luz CFE</h3>
+                    <span class="video-tag">SERVICIOS</span>
+                    <span class="video-duration">07:20</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇪🇸 Español</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN VIDEOS EN MAYA -->
+        <div class="section-title" style="margin-top: 30px;">🎬 Videos en Maya</div>
+        <div class="video-tutorials-container">
+            <div class="video-card" onclick="window.app.selectTramite('curp')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/Q5mHj18l-YE/maxresdefault.jpg" alt="CURP Maya"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Cómo obtener tu CURP (Maya)</h3>
+                    <span class="video-tag">CURP</span>
+                    <span class="video-duration">04:30</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇲🇽 Maya</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('rfc')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/vXOov614vtQ/maxresdefault.jpg" alt="RFC Maya"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Cómo tramitar tu RFC (Maya)</h3>
+                    <span class="video-tag">RFC / SAT</span>
+                    <span class="video-duration">06:12</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇲🇽 Maya</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('acta')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/zREdYJ5fQRk/maxresdefault.jpg" alt="Acta Maya"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Acta de Nacimiento en línea (Maya)</h3>
+                    <span class="video-tag">ACTA</span>
+                    <span class="video-duration">05:45</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇲🇽 Maya</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('servicios')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/ZsZJtENEWEc/maxresdefault.jpg" alt="Servicios Maya"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Pago de Agua (CAPA) - Maya</h3>
+                    <span class="video-tag">CAPA</span>
+                    <span class="video-duration">07:20</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇲🇽 Maya</div>
+                </div>
+            </div>
+            <div class="video-card" onclick="window.app.selectTramite('servicios')">
+                <div class="video-thumbnail"><img src="https://img.youtube.com/vi/j8-uu2kN6qU/maxresdefault.jpg" alt="CFE Maya"><div class="play-overlay">▶</div></div>
+                <div class="video-info">
+                    <h3>Pago de Luz (CFE) - Maya</h3>
+                    <span class="video-tag">CFE</span>
+                    <span class="video-duration">07:20</span>
+                    <div style="font-size: 11px; color: #1e3a8a; margin-top: 5px;">🇲🇽 Maya</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
         
         if (this.currentLanguage === 'maya') {
             return this.renderMayaHome();
@@ -835,7 +919,6 @@ const App = {
 
         const title = this.getTramiteTitle(this.selectedTramite);
         const videoUrl = this.getVideoUrl(this.selectedTramite);
-        const videoTitle = this.getVideoTitle(this.selectedTramite);
 
         if (this.accessibilityMode === 'screenreader') {
             const stepsHTML = this.getDefaultSteps(this.selectedTramite);
@@ -870,19 +953,53 @@ const App = {
                         <div class="header-with-back">
                             <button class="back-btn-inline" onclick="window.app.goBack()">←</button>
                             <div class="header-text">
-                                <h2>CURP</h2>
-                                <p>Información y tutorial</p>
+                                <h2>INTERFAZ DE CURP</h2>
+                                <p>CURP - Clave Única de Registro de Población</p>
                             </div>
                         </div>
                     </div>
                     <div class="video-tutorial">
-                        <h4>📺 ${videoTitle}</h4>
+                        <h4>📺 VIDEO TUTORIAL AQUÍ (Videos en Español)</h4>
                         <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="steps-container">
-                        ${this.getDefaultSteps('curp')}
+                    <div class="section-title">Proceso para obtener la CURP</div>
+                    <div class="method-card">
+                        <h3>1. Con tu CURP (si ya la conoces)</h3>
+                        <p><strong>Necesitarás:</strong> tu INE o Identificación oficial</p>
+                        <div class="steps-list">
+                            <p><strong>Pasos:</strong></p>
+                            <ol>
+                                <li>Entra al portal oficial de CURP.</li>
+                                <li>Selecciona la opción "Clave Única de Registro de Población".</li>
+                                <li>Escribe tu CURP completa.</li>
+                                <li>Captura el código de verificación (captcha).</li>
+                                <li>Haz clic en "Buscar".</li>
+                                <li>El sistema mostrará tu CURP certificado.</li>
+                                <li>Puedes descargarla en PDF o imprimirla.</li>
+                            </ol>
+                        </div>
                     </div>
-                    <div class="oficial-link" style="text-align: center; margin: 20px 0;">
+                    <div class="oficial-link">
+                        <a href="#" onclick="window.app.openOfficialSite('curp')" class="btn-oficial">🌐 Ir al sitio oficial de CURP →</a>
+                    </div>
+                    <div class="method-card">
+                        <h3>2. Con tus datos personales (si no recuerdas tu CURP)</h3>
+                        <div class="steps-list">
+                            <p><strong>Pasos:</strong></p>
+                            <ol>
+                                <li>Entra al portal oficial.</li>
+                                <li>Selecciona la opción "Datos Personales".</li>
+                                <li>Llena los siguientes datos:
+                                    <ul><li>Nombre(s)</li><li>Apellido paterno</li><li>Apellido materno</li><li>Fecha de nacimiento</li><li>Sexo</li><li>Estado de nacimiento</li></ul>
+                                </li>
+                                <li>Escribe el código de verificación (captcha).</li>
+                                <li>Presiona "Buscar".</li>
+                                <li>El sistema localizará tu CURP automáticamente.</li>
+                                <li>Descárgala o imprímela gratis.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="oficial-link">
                         <a href="#" onclick="window.app.openOfficialSite('curp')" class="btn-oficial">🌐 Ir al sitio oficial de CURP →</a>
                     </div>
                 </div>
@@ -897,19 +1014,60 @@ const App = {
                         <div class="header-with-back">
                             <button class="back-btn-inline" onclick="window.app.goBack()">←</button>
                             <div class="header-text">
-                                <h2>RFC</h2>
-                                <p>Información y tutorial</p>
+                                <h2>INTERFAZ DE RFC</h2>
+                                <p>RFC - Situación Fiscal</p>
                             </div>
                         </div>
                     </div>
                     <div class="video-tutorial">
-                        <h4>📺 ${videoTitle}</h4>
+                        <h4>📺 VIDEO TUTORIAL AQUÍ (Videos en Español)</h4>
                         <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="steps-container">
-                        ${this.getDefaultSteps('rfc')}
+                    <div class="section-title">Proceso para Actualizar RFC</div>
+                    <div class="method-card">
+                        <h3>Sacar Cita Para RFC</h3>
+                        <div class="requirements-box">
+                            <p><strong>Requisitos:</strong></p>
+                            <ul><li>CURP</li><li>RFC</li><li>INE o identificación oficial</li><li>Comprobante de domicilio (en algunos casos)</li></ul>
+                        </div>
+                        <div class="steps-list">
+                            <p><strong>Pasos:</strong></p>
+                            <ol>
+                                <li>Entra al portal oficial del SAT.</li>
+                                <li>Inicia sesión con tu RFC y contraseña.</li>
+                                <li>Ve a "Actualización al RFC".</li>
+                                <li>Selecciona el dato que deseas modificar.</li>
+                                <li>Captura la nueva información.</li>
+                                <li>Verifica que los datos sean correctos.</li>
+                                <li>Envía la solicitud.</li>
+                                <li>Descarga o guarda el acuse de actualización.</li>
+                            </ol>
+                        </div>
                     </div>
-                    <div class="oficial-link" style="text-align: center; margin: 20px 0;">
+                    <div class="oficial-link">
+                        <a href="#" onclick="window.app.openOfficialSite('rfc')" class="btn-oficial">🌐 Ir al sitio oficial del SAT Citas →</a>
+                    </div>
+                    <div class="method-card">
+                        <h3>Sacar Cita Para RFC</h3>
+                        <div class="requirements-box">
+                            <p><strong>Requisitos:</strong></p>
+                            <ul><li>CURP</li><li>RFC</li><li>INE o identificación oficial</li><li>Comprobante de domicilio (en algunos casos)</li></ul>
+                        </div>
+                        <div class="steps-list">
+                            <p><strong>Pasos:</strong></p>
+                            <ol>
+                                <li>Ingresa al portal de citas del SAT.</li>
+                                <li>Selecciona "Registrar cita".</li>
+                                <li>Elige el trámite que necesitas.</li>
+                                <li>Selecciona tu estado y oficina SAT.</li>
+                                <li>Escoge fecha y horario disponible.</li>
+                                <li>Captura tus datos personales.</li>
+                                <li>Confirma la cita.</li>
+                                <li>Guarda el comprobante o folio de cita.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="oficial-link">
                         <a href="#" onclick="window.app.openOfficialSite('rfc')" class="btn-oficial">🌐 Ir al sitio oficial del SAT →</a>
                     </div>
                 </div>
@@ -924,26 +1082,31 @@ const App = {
                         <div class="header-with-back">
                             <button class="back-btn-inline" onclick="window.app.goBack()">←</button>
                             <div class="header-text">
-                                <h2>Acta de nacimiento</h2>
-                                <p>Proceso para obtener acta de nacimiento actualizada</p>
+                                <h2>INTERFAZ DE ACTA DE NACIMIENTO</h2>
+                                <p>ACTA - Acta de nacimiento</p>
                             </div>
                         </div>
                     </div>
                     <div class="video-tutorial">
-                        <h4>📺 VIDEO TUTORIAL</h4>
+                        <h4>📺 VIDEO TUTORIAL AQUÍ (Videos en Español)</h4>
                         <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
                     </div>
+                    <div class="section-title">Proceso para obtener acta de nacimiento actualizada</div>
                     <div class="requirements-box">
                         <p><strong>Requisitos:</strong></p>
-                        <ul>
-                            <li>CURP</li>
-                            <li>Nombre completo</li>
-                            <li>Fecha de nacimiento</li>
-                            <li>Método de pago (si aplica)</li>
-                        </ul>
+                        <ul><li>CURP</li><li>Nombre completo</li><li>Fecha de nacimiento</li><li>Método de pago (si aplica)</li></ul>
                     </div>
-                    <div class="steps-container">
-                        ${this.getDefaultSteps('acta')}
+                    <div class="steps-list">
+                        <p><strong>Pasos:</strong></p>
+                        <ol>
+                            <li>Ingresa al portal de actas de nacimiento.</li>
+                            <li>Captura tu CURP o datos personales.</li>
+                            <li>Verifica que tu información sea correcta.</li>
+                            <li>Visualiza la vista previa del acta.</li>
+                            <li>Realiza el pago correspondiente.</li>
+                            <li>Descarga el acta actualizada en PDF.</li>
+                            <li>Guarda o imprime tu documento.</li>
+                        </ol>
                     </div>
                     <div class="oficial-link">
                         <a href="#" onclick="window.app.openOfficialSite('acta')" class="btn-oficial">🌐 Ir al sitio oficial del Acta de nacimiento →</a>
@@ -952,7 +1115,7 @@ const App = {
             `;
         }
         
-        // SOLO MODIFICADO: SERVICIOS en MODO TEXTO GRANDE
+        // NUEVA INTERFAZ PARA SERVICIOS EN MODO TEXTO GRANDE
         if (this.accessibilityMode === 'large-text' && this.selectedTramite === 'servicios') {
             const videoAguaUrl = "https://www.youtube.com/embed/dkpqVCMyrXc";
             const videoLuzUrl = "https://www.youtube.com/embed/j8-uu2kN6qU";
@@ -972,7 +1135,7 @@ const App = {
                     <div class="section-title">Servicio de Agua</div>
                     
                     <div class="video-tutorial">
-                        <h4>📺 Video Tutorial</h4>
+                        <h4>📺 Video Tutorial (Videos en Español)</h4>
                         <iframe src="${videoAguaUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div style="margin-top: 8px; text-align: right;">
                             <a href="https://www.youtube.com/watch?v=dkpqVCMyrXc" target="_blank" style="color: #1e3a8a; font-size: 12px;">Ver en YouTube →</a>
@@ -1007,7 +1170,7 @@ const App = {
                     <div class="section-title">Servicio de Electricidad</div>
                     
                     <div class="video-tutorial">
-                        <h4>📺 Video Tutorial</h4>
+                        <h4>📺 Video Tutorial (Videos en Español)</h4>
                         <iframe src="${videoLuzUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div style="margin-top: 8px; text-align: right;">
                             <a href="https://www.youtube.com/watch?v=j8-uu2kN6qU" target="_blank" style="color: #1e3a8a; font-size: 12px;">Ver en YouTube →</a>
@@ -1055,11 +1218,8 @@ const App = {
                     </div>
                 </div>
                 <div class="video-tutorial">
-                    <h4>📺 ${videoTitle}</h4>
+                    <h4>📺 VIDEO TUTORIAL (Videos en Español)</h4>
                     <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="steps-container">
-                    ${this.getDefaultSteps(this.selectedTramite)}
                 </div>
                 <div class="oficial-link" style="text-align: center; margin: 20px 0;">
                     <a href="#" onclick="window.app.openOfficialSite('${this.selectedTramite}')" class="btn-oficial">🌐 Ir al sitio oficial →</a>
@@ -1104,7 +1264,6 @@ const App = {
             curp: 'https://www.gob.mx/curp/', 
             rfc: 'https://www.sat.gob.mx/', 
             acta: 'https://www.gob.mx/actadenacimiento', 
-            servicios: 'https://www.gob.mx/servicios',
             capa: 'https://aplicaciones.sacmex.cdmx.gob.mx/fut/',
             cfe: 'https://app.cfe.mx/Aplicaciones/CCFE/MiEspacio/Login.aspx'
         };
